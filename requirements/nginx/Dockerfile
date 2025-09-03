@@ -1,7 +1,7 @@
 FROM debian:latest
 
-RUN apt update && apt upgrade && apt install -y nginx
+RUN apt update && apt install -y nginx
 
-COPY default /etc/nginx/sites-available/.
+COPY default /etc/nginx/sites-available/default
 
 CMD ["nginx", "-g", "daemon off;"]
