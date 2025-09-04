@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 5s
+
 # Change directory to the WordPress root directory
 cd /var/www/html
 

@@ -3,7 +3,7 @@ services:
     build: requirements/nginx/.
     container_name: nginx
     ports:
-      - "80:80"
+      - "443:443"
     env_file:
       - .env
     volumes:
@@ -22,8 +22,7 @@ services:
     volumes:
       - ./web:/var/www/html
     depends_on:
-      mariadb:
-        condition: service_healthy
+      - mariadb
     networks:
       - inception
     restart: unless-stopped
@@ -38,11 +37,6 @@ services:
     networks:
       - inception
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pyour_root_password"]
-      timeout: 20s
-      retries: 10
-    command: ["--skip-grant-tables"]
 
 networks:
   inception:

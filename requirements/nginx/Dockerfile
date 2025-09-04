@@ -1,7 +1,12 @@
 FROM debian:latest
 
-RUN apt update && apt install -y nginx
+RUN apt update && apt install -y nginx openssl
 
 COPY default /etc/nginx/sites-available/default
+COPY script.sh /script.sh
 
-CMD ["nginx", "-g", "daemon off;"]
+RUN chmod +x /script.sh
+
+EXPOSE 443
+
+CMD ["/script.sh"]

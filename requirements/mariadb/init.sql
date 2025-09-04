@@ -1,6 +1,8 @@
 -- Set root password
-ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('root');
--- Create database
+-- Using environment variables (requires shell interpolation in entrypoint)
+ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('${MYSQL_ROOT_PASSWORD}');
+CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED VIA mysql_native_password USING PASSWORD('${MYSQL_ROOT_PASSWORD}');
+-- ... rest of the script-- Create database
 CREATE DATABASE IF NOT EXISTS wordpress;
 
 -- Create WordPress user with proper permissions
