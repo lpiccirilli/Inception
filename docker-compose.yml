@@ -40,7 +40,6 @@ services:
 
 networks:
   inception:
-    driver: bridge
 
 volumes:
   mariadb_data:
