@@ -1,8 +1,0 @@
-ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('${MYSQL_ROOT_PASSWORD}');
-CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED VIA mysql_native_password USING PASSWORD('${MYSQL_ROOT_PASSWORD}');
-CREATE DATABASE IF NOT EXISTS wordpress;
-
-CREATE USER IF NOT EXISTS 'wpuser'@'%' IDENTIFIED BY 'your_wp_password';
-GRANT ALL PRIVILEGES ON wordpress.* TO 'wpuser'@'%';
-
-FLUSH PRIVILEGES;
