@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./web:/var/www/html
+      - wordpress_data:/var/www/html
     depends_on:
       - wordpress
     networks:
@@ -20,7 +20,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./web:/var/www/html
+      - wordpress_data:/var/www/html
     depends_on:
       - mariadb
     networks:
@@ -43,3 +43,14 @@ networks:
 
 volumes:
   mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/luca/data/mariadb
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/luca/data/wordpress
