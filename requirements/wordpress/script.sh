@@ -11,14 +11,12 @@ if [ ! -f wp-cli.phar ]; then
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 fi
 
-# Always ensure wp-cli.phar is executable
 chmod +x wp-cli.phar
 
 if [ ! -d "wp-includes" ]; then
     ./wp-cli.phar core download --allow-root
 fi
 
-# Only create wp-config.php if it doesn't exist
 if [ ! -f "wp-config.php" ]; then
     ./wp-cli.phar config create --allow-root \
         --dbname=$WORDPRESS_DB_NAME \
@@ -28,15 +26,12 @@ if [ ! -f "wp-config.php" ]; then
         --path='/var/www/html'
 fi
 
-# Set proper ownership and permissions
 chown -R www-data:www-data /var/www/html
 chmod -R 755 /var/www/html
 find /var/www/html -type f -exec chmod 644 {} \;
 
-# Keep wp-cli.phar executable
 chmod +x wp-cli.phar
 
-# Only install WordPress if not already installed
 if ! ./wp-cli.phar core is-installed --allow-root 2>/dev/null; then
     ./wp-cli.phar core install \
         --url=$DOMAIN_NAME/ \

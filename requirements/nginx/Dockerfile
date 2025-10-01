@@ -9,4 +9,4 @@ RUN chmod +x /script.sh
 
 EXPOSE 443
 
-CMD ["/script.sh"]
+ENTRYPOINT ["/script.sh"]
