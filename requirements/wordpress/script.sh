@@ -43,4 +43,4 @@ if ! ./wp-cli.phar core is-installed --allow-root 2>/dev/null; then
         --allow-root
 fi
 
-exec /usr/sbin/php-fpm7.4 -F
+php-fpm8.2 -F

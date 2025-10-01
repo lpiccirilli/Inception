@@ -1,13 +1,13 @@
-FROM debian:bullseye
+FROM debian:bookworm
 
 RUN apt update && apt install -y \
 	php \
 	php-fpm \
 	php-mysqli \
 	curl \
-	netcat
+	netcat-openbsd
 
-COPY www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY www.conf /etc/php/8.2/fpm/pool.d/www.conf
 COPY script.sh .
 RUN chmod +x script.sh
 RUN mkdir -p /run/php
