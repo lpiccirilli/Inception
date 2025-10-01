@@ -47,10 +47,10 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/luca/data/mariadb
+      device: /home/lpicciri/data/mariadb
   wordpress_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/luca/data/wordpress
+      device: /home/lpicciri/data/wordpress

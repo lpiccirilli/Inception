@@ -1,9 +1,9 @@
 build:
-	sudo mkdir -p /home/luca/data/mariadb /home/luca/data/wordpress
-	sudo chown -R 999:999 /home/luca/data/mariadb
-	sudo chmod -R 750 /home/luca/data/mariadb
-	sudo chown -R 33:33 /home/luca/data/wordpress
-	sudo chmod -R 755 /home/luca/data/wordpress
+	sudo mkdir -p /home/lpicciri/data/mariadb /home/lpicciri/data/wordpress
+	sudo chown -R 999:999 /home/lpicciri/data/mariadb
+	sudo chmod -R 750 /home/lpicciri/data/mariadb
+	sudo chown -R 33:33 /home/lpicciri/data/wordpress
+	sudo chmod -R 755 /home/lpicciri/data/wordpress
 
 	sudo docker compose up --build
 
